@@ -1,24 +1,19 @@
-#include <bits/stdc++.h>
+#include<cstdio>
+#include<cstring>
+#include<algorithm>
+#define rep(i,l,r) for (int i=(l); i<=(r); i++)
 using namespace std;
-typedef long long ll;
-typedef long double ld;
-int main()
-{
-    int b, n, m, i, j, k, s, t;
-    scanf("%d%d", &b, &k);
-    s = 0;
-    for (i = k - 1; i >= 0; i--) {
-        scanf("%d", &t);
-        if (t != 0) {
-            if (i != 0)
-                s += (b * t) % 2;
-            else
-                s += t % 2;
-        }
-    }
-    if (s % 2 == 0)
-        printf("even\n");
-    else
-        printf("odd\n");
-    return 0;
+
+const int N=1000010;
+int n,m,x,s[N],f[N][3][3];
+
+int main(){
+	scanf("%d%d",&n,&m);
+	rep(i,1,n) scanf("%d",&x),s[x]++;
+	memset(f,-1,sizeof(f)); f[0][0][0]=0;
+	rep(i,0,m-1) rep(j,0,2) rep(k,0,2) if (~f[i][j][k] && j+k<=s[i+1])
+		rep(l,0,min(2,s[i+1]-j-k))
+			f[i+1][k][l]=max(f[i+1][k][l],f[i][j][k]+l+(s[i+1]-j-k-l)/3);
+	printf("%d\n",f[m][0][0]);
+	return 0;
 }
