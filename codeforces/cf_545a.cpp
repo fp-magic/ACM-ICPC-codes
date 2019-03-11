@@ -46,11 +46,17 @@ int main()
         }
         cy[i]=k;
     }
+    /*for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=m;j++)
+            printf("(%d %d)",x[i][j],y[i][j]);
+        printf("\n");
+    }*/
     for(i=1;i<=n;i++)
     {
         for(j=1;j<=m;j++)
         {
-            printf("%d ",max(cx[i],cy[j]));
+            printf("%d ",max(x[i][j],y[i][j])+max(cx[i]-x[i][j],cy[j]-y[i][j]));
         }
         printf("\n");
     }
