@@ -43,14 +43,14 @@ int main()
             output(c[n-i/2]);
             printf(" %d ",a[c[n-i/2]]);
             if(i==n)printf("-1");else output(c[i/2+1]);
-            printf("\n");
+            if(i!=n)printf("\n");
             //printf("%d %d %5d\n",c[n-i/2],a[c[n-i/2]],c[i/2+1]);
         }else
         {
             output(c[i/2]);
             printf(" %d ",a[c[i/2]]);
             if(i==n)printf("-1");else output(c[n-i/2]);
-            printf("\n");
+            if(i!=n)printf("\n");
             //printf("%5d %d %5d\n",c[i/2],a[c[i/2]],c[n-i/2]);
         }
     }

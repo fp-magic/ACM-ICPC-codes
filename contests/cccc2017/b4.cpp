@@ -28,8 +28,9 @@ int main()
         for(j=1;j<=n;j++)
             scanf("%d",&b[j]),mp[b[j]]=1;
         t=1;
+        if(mp.size()!=k)t=0;
         for(j=1;j<=n;j++)
-            if(b[j]<1||b[j]>v)t=0;
+            if(b[j]<1||b[j]>n)t=0;
         for(i=1;i<=n;i++)
         for(j=i+1;j<=n;j++)
         if(a[i][j]&&b[i]==b[j])t=0;
